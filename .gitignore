@@ -3,3 +3,7 @@
 *.vcxproj.*
 *.vs
 x64
+Pixie/todo/
+Pixie/ext/
+build/
+deps/
