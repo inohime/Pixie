@@ -449,7 +449,8 @@ namespace pxe {
 
 	void PixieRenderer::endFrame() {
 		ID3D12CommandList *cmdBuffer[] = {cmdList.Get()};
-		cmdQueue->ExecuteCommandLists(_countof(cmdBuffer), cmdBuffer);
+		(*cmdBuffer)->SetName(L"command list buffer");
+
 		cmdQueue->ExecuteCommandLists(_countof(cmdBuffer), cmdBuffer);
 
 		swapchain->Present(1, 0);
