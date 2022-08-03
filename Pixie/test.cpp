@@ -1,8 +1,9 @@
 #include "renderer.hpp"
 #include <chrono>
 
-using namespace pxe;
+// make two triangles and render full textures
 
+using namespace pxe;
 int main(int, char **) 
 {
 	SDL_assert(SDL_Init(SDL_INIT_EVERYTHING) == 0);

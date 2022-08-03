@@ -6,14 +6,6 @@
 #include <stdexcept>
 
 namespace pxe {
-	/*
-	namespace limits {
-		std::chrono::steady_clock::time_point begin {};
-		std::chrono::steady_clock::time_point end {};
-		std::chrono::duration<double, std::milli> deltaTime {};
-	} 
-	*/
-
 	struct PixieMemory final {
 		void operator()(SDL_Window *x) const {SDL_DestroyWindow(x);}
 		void operator()(SDL_Renderer *x) const {SDL_DestroyRenderer(x);}
@@ -27,7 +19,6 @@ namespace pxe {
 		PixieException(HRESULT hr) : result(hr) {
 			if (FAILED(hr)) {
 				constexpr int msgLength = 265;
-				//char errorMsg[msgLength];
 				auto errorMsg = std::make_unique<int[]>(msgLength);
 				std::memset(errorMsg.get(), 0, msgLength);
 				FormatMessage(FORMAT_MESSAGE_FROM_SYSTEM, NULL, hr, MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT), (LPWSTR)errorMsg.get(), msgLength - 1, NULL);

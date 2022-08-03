@@ -20,7 +20,7 @@ namespace pxe {
 		XMFLOAT4X4 projectionMatrix;
 		XMFLOAT4X4 viewMatrix;
 	};
-
+	
 	struct PixieVertexData {
 		XMFLOAT3 position;
 		XMFLOAT2 uv;
@@ -77,6 +77,9 @@ namespace pxe {
 		wrl::ComPtr<ID3D12Resource> textureUploadHeap;
 		wrl::ComPtr<ID3D12Resource> vertexBuffer;
 		D3D12_VERTEX_BUFFER_VIEW vertexBufferView;
+		wrl::ComPtr<ID3D12Resource> indexBuffer;
+		wrl::ComPtr<ID3D12Resource> indexBufferUploadHeap;
+		D3D12_INDEX_BUFFER_VIEW indexBufferView;
 
 		// sync objects
 		UINT frameIndex;
